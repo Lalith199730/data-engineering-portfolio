@@ -1,1 +1,10 @@
-dfgfdg
+#running the following command to create pub/sub topic (all the game data will be droppped here)
+gcloud pubsub topics create esports_events_topic
+
+# creating pub/sub subscription (someone needs to check the mailbox)
+gcloud pubsub subscriptions create esports_events_topic-sub --topic=esports_events_topic
+
+# creating bigdata dataset ( creating a warehosue to store all data)
+bq --location=US mk --dataset esports_analytics
+
+
